@@ -30,11 +30,11 @@ RUN R -e "install.packages(c('rmarkdown', 'knitr', 'ggplot2', 'dplyr', 'tidyr', 
 COPY --from=build-frontend /app/dist /usr/share/nginx/html
 COPY --from=build-frontend /app/server.js /app/server.js
 
-# Nginx: serve html + proxy /api to Node.js
-RUN rm -f /etc/nginx/conf.d/default.conf \
+# Nginx: remove default site, serve html + proxy /api to Node.js
+RUN rm -f /etc/nginx/conf.d/default.conf /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default \
     && { \
     echo 'server {'; \
-    echo '    listen 80;'; \
+    echo '    listen 80 default_server;'; \
     echo '    root /usr/share/nginx/html;'; \
     echo '    index index.html;'; \
     echo '    location / {'; \
@@ -43,9 +43,9 @@ RUN rm -f /etc/nginx/conf.d/default.conf \
     echo '    location /api/ {'; \
     echo '        proxy_pass http://127.0.0.1:3001;'; \
     echo '        proxy_http_version 1.1;'; \
-    echo '        proxy_set_header Upgrade $http_upgrade;'; \
+    echo '        proxy_set_header Upgrade \$http_upgrade;'; \
     echo '        proxy_set_header Connection "upgrade";'; \
-    echo '        proxy_set_header Host $host;'; \
+    echo '        proxy_set_header Host \$host;'; \
     echo '    }'; \
     echo '}'; \
     } > /etc/nginx/conf.d/rstudent.conf
