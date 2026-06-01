@@ -27,14 +27,15 @@ RUN R -e "install.packages(c('rmarkdown', 'knitr', 'ggplot2', 'dplyr', 'tidyr', 
     && R -e "tinytex::install_tinytex(force=TRUE)" 2>/dev/null || true
 
 # Copy built frontend from stage 1
-COPY --from=build-frontend /app/dist /app/dist
+COPY --from=build-frontend /app/dist /usr/share/nginx/html
 COPY --from=build-frontend /app/server.js /app/server.js
 
-# Nginx: serve dist/ + proxy /api to Node.js
-RUN { \
+# Nginx: serve html + proxy /api to Node.js
+RUN rm -f /etc/nginx/conf.d/default.conf \
+    && { \
     echo 'server {'; \
     echo '    listen 80;'; \
-    echo '    root /app/dist;'; \
+    echo '    root /usr/share/nginx/html;'; \
     echo '    index index.html;'; \
     echo '    location / {'; \
     echo '        try_files $uri $uri/ /index.html;'; \
@@ -47,7 +48,7 @@ RUN { \
     echo '        proxy_set_header Host $host;'; \
     echo '    }'; \
     echo '}'; \
-    } > /etc/nginx/conf.d/default.conf
+    } > /etc/nginx/conf.d/rstudent.conf
 
 EXPOSE 80
 
