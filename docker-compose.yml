@@ -1,0 +1,61 @@
+version: "3.8"
+
+services:
+  rstudent:
+    build: .
+    container_name: rstudent
+    ports:
+      - "1420:80"
+    volumes:
+      # Persist installed R packages across restarts
+      - rstudent-rlibs:/usr/local/lib/R/site-library
+      # Persist plots
+      - rstudent-plots:/app/data/plots
+      # Mount your local R projects to work with them
+      - ./projects:/app/projects
+      # Mount source for development (hot-reload)
+      - ./src:/app/src
+    environment:
+      - RSTUDENT_R_PATH=R
+      - RSTUDENT_R_ARGS=--no-save --no-restore --quiet
+      - RSTUDENT_PLOTS_DIR=/app/data/plots
+    # Give container access to more memory for R
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/api/environment"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Development mode: hot-reload frontend + live R
+  rstudent-dev:
+    image: rocker/r-ver:4.4.0
+    container_name: rstudent-dev
+    working_dir: /app
+    ports:
+      - "1420:1420"
+      - "3001:3001"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - rstudent-rlibs:/usr/local/lib/R/site-library
+      - rstudent-plots:/app/data/plots
+    environment:
+      - RSTUDENT_R_PATH=R
+    command: >
+      sh -c "
+        apt-get update && apt-get install -y pandoc nodejs npm &&
+        R -e 'install.packages(c(\"rmarkdown\",\"knitr\",\"ggplot2\",\"dplyr\",\"jsonlite\",\"base64enc\"), repos=\"https://cloud.r-project.org\")' &&
+        npm install &&
+        npm run dev -- --host 0.0.0.0 &
+        node server.js
+      "
+    profiles: ["dev"]
+
+volumes:
+  rstudent-rlibs:
+  rstudent-plots:

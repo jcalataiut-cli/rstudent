@@ -1,0 +1,157 @@
+<!doctype html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RStudent Logo</title>
+<style>
+  body {
+    margin: 0;
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+  }
+  .card {
+    background: #1e293b;
+    border-radius: 24px;
+    padding: 48px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .name {
+    font-size: 64px;
+    font-weight: 800;
+    color: #e2e8f0;
+    letter-spacing: -2px;
+  }
+  .name span {
+    color: #4ade80;
+  }
+  .sub {
+    font-size: 18px;
+    color: #94a3b8;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .variants {
+    display: flex;
+    gap: 48px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .variant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .variant-label {
+    color: #64748b;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+</style>
+<div class="card">
+  <div class="logo-wrap">
+    <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <!-- Sombra del cactus -->
+      <ellipse cx="72" cy="110" rx="36" ry="6" fill="#0f172a" opacity="0.3"/>
+
+      <!-- Maceta -->
+      <path d="M40 90 L44 110 L76 110 L80 90 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5" stroke-linejoin="round"/>
+      <rect x="36" y="86" width="48" height="6" rx="2" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+
+      <!-- Tierra -->
+      <path d="M42 90 L44 96 L76 96 L78 90 Z" fill="#6b4226" opacity="0.6"/>
+
+      <!-- Cuerpo principal del cactus -->
+      <rect x="52" y="28" width="16" height="60" rx="8" fill="#4ade80" stroke="#22c55e" stroke-width="1.5"/>
+
+      <!-- Brazo izquierdo -->
+      <path d="M52 56 Q40 56 38 46 Q36 36 44 34" fill="none" stroke="#4ade80" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M52 56 Q40 56 38 46 Q36 36 44 34" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Brazo derecho -->
+      <path d="M68 44 Q80 44 82 34 Q84 24 76 22" fill="none" stroke="#4ade80" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M68 44 Q80 44 82 34 Q84 24 76 22" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Flores / espinas decorativas -->
+      <circle cx="60" cy="30" r="3" fill="#fbbf24"/>
+      <circle cx="56" cy="42" r="2" fill="#fbbf24"/>
+      <circle cx="64" cy="50" r="2" fill="#fbbf24"/>
+      <circle cx="58" cy="62" r="1.5" fill="#fbbf24"/>
+      <circle cx="62" cy="72" r="1.5" fill="#fbbf24"/>
+
+      <!-- Flor en la punta -->
+      <circle cx="60" cy="22" r="5" fill="#f472b6"/>
+      <circle cx="60" cy="22" r="2.5" fill="#fbbf24"/>
+    </svg>
+    <div class="name">R<span>Student</span></div>
+  </div>
+  <div class="sub">R &bull; IDE &bull; LLM</div>
+
+  <!-- Variantes de color -->
+  <div class="variants">
+    <div class="variant">
+      <svg width="80" height="80" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 90 L44 110 L76 110 L80 90 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+        <rect x="36" y="86" width="48" height="6" rx="2" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <path d="M42 90 L44 96 L76 96 L78 90 Z" fill="#6b4226" opacity="0.6"/>
+        <rect x="52" y="28" width="16" height="60" rx="8" fill="#4ade80" stroke="#22c55e" stroke-width="1.5"/>
+        <path d="M52 56 Q40 56 38 46 Q36 36 44 34" fill="none" stroke="#4ade80" stroke-width="12" stroke-linecap="round"/>
+        <path d="M52 56 Q40 56 38 46 Q36 36 44 34" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M68 44 Q80 44 82 34 Q84 24 76 22" fill="none" stroke="#4ade80" stroke-width="12" stroke-linecap="round"/>
+        <path d="M68 44 Q80 44 82 34 Q84 24 76 22" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="60" cy="22" r="5" fill="#f472b6"/>
+        <circle cx="60" cy="22" r="2.5" fill="#fbbf24"/>
+      </svg>
+      <div class="variant-label">Verde</div>
+    </div>
+    <div class="variant">
+      <svg width="80" height="80" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 90 L44 110 L76 110 L80 90 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+        <rect x="36" y="86" width="48" height="6" rx="2" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <path d="M42 90 L44 96 L76 96 L78 90 Z" fill="#6b4226" opacity="0.6"/>
+        <rect x="52" y="28" width="16" height="60" rx="8" fill="#2dd4bf" stroke="#14b8a6" stroke-width="1.5"/>
+        <path d="M52 56 Q40 56 38 46 Q36 36 44 34" fill="none" stroke="#2dd4bf" stroke-width="12" stroke-linecap="round"/>
+        <path d="M52 56 Q40 56 38 46 Q36 36 44 34" fill="none" stroke="#14b8a6" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M68 44 Q80 44 82 34 Q84 24 76 22" fill="none" stroke="#2dd4bf" stroke-width="12" stroke-linecap="round"/>
+        <path d="M68 44 Q80 44 82 34 Q84 24 76 22" fill="none" stroke="#14b8a6" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="60" cy="22" r="5" fill="#f472b6"/>
+        <circle cx="60" cy="22" r="2.5" fill="#fbbf24"/>
+      </svg>
+      <div class="variant-label">Teal</div>
+    </div>
+    <div class="variant">
+      <svg width="80" height="80" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 90 L44 110 L76 110 L80 90 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+        <rect x="36" y="86" width="48" height="6" rx="2" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <path d="M42 90 L44 96 L76 96 L78 90 Z" fill="#6b4226" opacity="0.6"/>
+        <rect x="52" y="28" width="16" height="60" rx="8" fill="#818cf8" stroke="#6366f1" stroke-width="1.5"/>
+        <path d="M52 56 Q40 56 38 46 Q36 36 44 34" fill="none" stroke="#818cf8" stroke-width="12" stroke-linecap="round"/>
+        <path d="M52 56 Q40 56 38 46 Q36 36 44 34" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M68 44 Q80 44 82 34 Q84 24 76 22" fill="none" stroke="#818cf8" stroke-width="12" stroke-linecap="round"/>
+        <path d="M68 44 Q80 44 82 34 Q84 24 76 22" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="60" cy="22" r="5" fill="#f472b6"/>
+        <circle cx="60" cy="22" r="2.5" fill="#fbbf24"/>
+      </svg>
+      <div class="variant-label">Índigo</div>
+    </div>
+  </div>
+
+  <p style="color:#64748b;font-size:14px;margin:8px 0 0 0;text-align:center;">
+    Cactus saguaro con maceta • detalles en dorado • flor rosa en la punta
+  </p>
+</div>
+</html>
